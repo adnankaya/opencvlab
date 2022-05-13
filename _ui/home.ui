@@ -1,0 +1,1984 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.0">
+  <object class="ttk.Panedwindow" id="panedwindow">
+    <property name="height">800</property>
+    <property name="orient">vertical</property>
+    <property name="width">1000</property>
+    <layout manager="pack">
+      <property name="expand">true</property>
+      <property name="fill">both</property>
+      <property name="padx">5</property>
+      <property name="pady">5</property>
+      <property name="propagate">True</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="ttk.Panedwindow.Pane" id="pane_top">
+        <property name="weight">1</property>
+        <child>
+          <object class="ttk.Frame" id="frame_buttons">
+            <property name="borderwidth">2</property>
+            <property name="height">200</property>
+            <property name="relief">groove</property>
+            <layout manager="pack">
+              <property name="expand">false</property>
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+            <child>
+              <object class="ttk.Frame" id="frame_btnsave">
+                <property name="padding">2</property>
+                <property name="relief">flat</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="anchor">w</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Button" id="btn_save">
+                    <property name="activebackground">#2c2c2c</property>
+                    <property name="activeforeground">#dedede</property>
+                    <property name="background">#2c2c2c</property>
+                    <property name="borderwidth">0</property>
+                    <property name="command">save</property>
+                    <property name="cursor">hand2</property>
+                    <property name="font">{Verdana} 10 {}</property>
+                    <property name="foreground">#dedede</property>
+                    <property name="text" translatable="yes">Save</property>
+                    <layout manager="pack">
+                      <property name="anchor">center</property>
+                      <property name="propagate">True</property>
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_btnbrowse">
+                <property name="padding">2</property>
+                <property name="relief">flat</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="anchor">w</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Button" id="btn_browse">
+                    <property name="activebackground">#2c2c2c</property>
+                    <property name="activeforeground">#dedede</property>
+                    <property name="background">#2c2c2c</property>
+                    <property name="borderwidth">0</property>
+                    <property name="command">browse</property>
+                    <property name="cursor">hand2</property>
+                    <property name="font">{Verdana} 10 {}</property>
+                    <property name="foreground">#dedede</property>
+                    <property name="text" translatable="yes">Browse</property>
+                    <layout manager="pack">
+                      <property name="anchor">center</property>
+                      <property name="propagate">True</property>
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_cb_opencv">
+                <property name="padding">2</property>
+                <property name="relief">flat</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="padx">5</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Checkbutton" id="cb_opencv_window">
+                    <property name="cursor">hand2</property>
+                    <property name="text" translatable="yes">OpenCV Window</property>
+                    <layout manager="pack">
+                      <property name="propagate">True</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_scalepercent">
+                <property name="padding">2</property>
+                <property name="relief">groove</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="expand">false</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="ttk.Label" id="lb_scalepercent">
+                    <property name="text" translatable="yes">Scale %</property>
+                    <layout manager="pack">
+                      <property name="propagate">True</property>
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="lb_scalevar">
+                    <property name="font">{Arial} 10 {bold}</property>
+                    <property name="text" translatable="yes">50</property>
+                    <layout manager="pack">
+                      <property name="propagate">True</property>
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Scale" id="scale_scalepercent">
+                    <property name="cursor">hand2</property>
+                    <property name="from_">40</property>
+                    <property name="orient">horizontal</property>
+                    <property name="to">100</property>
+                    <property name="value">40</property>
+                    <bind sequence="&lt;B1-Motion&gt;" handler="get_scalevar" add="" />
+                    <layout manager="pack">
+                      <property name="padx">5</property>
+                      <property name="pady">5</property>
+                      <property name="propagate">True</property>
+                      <property name="side">right</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_duration_info">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="padx">10</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="ttk.Frame" id="frame_cpu_duration">
+                    <property name="height">200</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="fill">x</property>
+                      <property name="propagate">True</property>
+                      <property name="side">top</property>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="lb_cpu_dur">
+                        <property name="font">{arial} 10 {bold}</property>
+                        <property name="text" translatable="yes">CPU Duration:</property>
+                        <layout manager="pack">
+                          <property name="anchor">w</property>
+                          <property name="propagate">True</property>
+                          <property name="side">left</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="lb_cpu_dur_val">
+                        <property name="background">#ffffff</property>
+                        <property name="font">{arial} 10 {}</property>
+                        <property name="text" translatable="yes">0</property>
+                        <layout manager="pack">
+                          <property name="propagate">True</property>
+                          <property name="side">right</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Frame" id="frame_duration">
+                    <property name="height">200</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="anchor">w</property>
+                      <property name="fill">x</property>
+                      <property name="propagate">True</property>
+                      <property name="side">bottom</property>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="lb_duration">
+                        <property name="font">{arial} 10 {bold}</property>
+                        <property name="text" translatable="yes">Processing Duration:</property>
+                        <layout manager="pack">
+                          <property name="anchor">w</property>
+                          <property name="propagate">True</property>
+                          <property name="side">left</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="lb_duration_val">
+                        <property name="background">#ffffff</property>
+                        <property name="font">{arial} 10 {}</property>
+                        <property name="text" translatable="yes">0</property>
+                        <layout manager="pack">
+                          <property name="propagate">True</property>
+                          <property name="side">right</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_btnstart">
+                <property name="padding">2</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Button" id="btn_start">
+                    <property name="activebackground">#01579B</property>
+                    <property name="activeforeground">#ffffff</property>
+                    <property name="background">#01579B</property>
+                    <property name="borderwidth">0</property>
+                    <property name="command">start</property>
+                    <property name="cursor">hand2</property>
+                    <property name="font">{verdana} 10 {bold}</property>
+                    <property name="foreground">#ffffff</property>
+                    <property name="padx">5</property>
+                    <property name="text" translatable="yes">Start</property>
+                    <layout manager="pack">
+                      <property name="propagate">True</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_btnstop">
+                <property name="padding">2</property>
+                <property name="relief">flat</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Button" id="btn_stop">
+                    <property name="activebackground">#e1031e</property>
+                    <property name="activeforeground">#ffffff</property>
+                    <property name="background">#e1031e</property>
+                    <property name="borderwidth">0</property>
+                    <property name="command">stop</property>
+                    <property name="cursor">hand2</property>
+                    <property name="font">{Verdana} 10 {bold}</property>
+                    <property name="foreground">#ffffff</property>
+                    <property name="text" translatable="yes">Stop</property>
+                    <layout manager="pack">
+                      <property name="anchor">center</property>
+                      <property name="padx">5</property>
+                      <property name="propagate">True</property>
+                      <property name="side">right</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_current_img_hist">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="padx">10</property>
+                  <property name="propagate">True</property>
+                  <property name="side">left</property>
+                </layout>
+                <child>
+                  <object class="tk.Button" id="btn_current_hist">
+                    <property name="activebackground">#2c2c2c</property>
+                    <property name="activeforeground">#dedede</property>
+                    <property name="background">#2c2c2c</property>
+                    <property name="borderwidth">0</property>
+                    <property name="command">show_current_img_histogram</property>
+                    <property name="cursor">hand2</property>
+                    <property name="font">{verdana} 10 {}</property>
+                    <property name="foreground">#dedede</property>
+                    <property name="text" translatable="yes">Histogram</property>
+                    <layout manager="pack">
+                      <property name="propagate">True</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Panedwindow.Pane" id="pane_body">
+        <property name="weight">24</property>
+        <child>
+          <object class="ttk.Frame" id="frame_body">
+            <property name="borderwidth">3</property>
+            <property name="height">200</property>
+            <property name="relief">flat</property>
+            <property name="width">200</property>
+            <layout manager="pack">
+              <property name="expand">true</property>
+              <property name="fill">both</property>
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+            <child>
+              <object class="ttk.Panedwindow" id="panedwindow_body">
+                <property name="orient">horizontal</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="expand">true</property>
+                  <property name="fill">both</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Panedwindow.Pane" id="pane_left">
+                    <property name="weight">1</property>
+                    <child>
+                      <object class="ttk.Notebook" id="notebook_frame_left">
+                        <property name="height">200</property>
+                        <property name="width">200</property>
+                        <layout manager="pack">
+                          <property name="expand">true</property>
+                          <property name="fill">both</property>
+                          <property name="propagate">True</property>
+                          <property name="side">top</property>
+                        </layout>
+                        <child>
+                          <object class="ttk.Notebook.Tab" id="tab_image_processing">
+                            <property name="text" translatable="yes">Image Processing</property>
+                            <child>
+                              <object class="pygubu.builder.widgets.scrolledframe" id="scrolledframe_nb_imgprocessing">
+                                <property name="relief">groove</property>
+                                <property name="scrolltype">both</property>
+                                <property name="usemousewheel">true</property>
+                                <layout manager="pack">
+                                  <property name="expand">true</property>
+                                  <property name="fill">both</property>
+                                  <property name="padx">2</property>
+                                  <property name="pady">2</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_orig_or_adjusted">
+                                    <property name="padding">2</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_orig_or_adjusted">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{Courier} 14 {bold}</property>
+                                        <property name="text" translatable="yes">Original</property>
+                                        <layout manager="pack">
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_thresh">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_tresh">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Threshold</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_threshval">
+                                        <property name="text" translatable="yes">10</property>
+                                        <layout manager="pack">
+                                          <property name="pady">1</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Scale" id="scale_thresh">
+                                        <property name="cursor">hand2</property>
+                                        <property name="from_">0</property>
+                                        <property name="length">160</property>
+                                        <property name="orient">horizontal</property>
+                                        <property name="to">255</property>
+                                        <bind sequence="&lt;B1-Motion&gt;" handler="get_threshval" add="" />
+                                        <layout manager="pack">
+                                          <property name="expand">false</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_kernel">
+                                        <property name="text" translatable="yes">Kernel</property>
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Combobox" id="combobox_kernel">
+                                        <property name="cursor">hand2</property>
+                                        <property name="state">readonly</property>
+                                        <property name="width">6</property>
+                                        <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="get_kernel" add="" />
+                                        <layout manager="pack">
+                                          <property name="expand">false</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_auto_contrast_brightness">
+                                    <property name="height">200</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_auto_contrast_brightness">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Auto Contrast &amp; Brightness</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_removenoise">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_removenoise">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Remove Noise</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_contrast">
+                                    <property name="height">200</property>
+                                    <property name="padding">2</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="anchor">nw</property>
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_contrast">
+                                        <property name="cursor">hand2</property>
+                                        <property name="text" translatable="yes">Contrast</property>
+                                        <layout manager="pack">
+                                          <property name="expand">false</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_contrastval">
+                                        <property name="text" translatable="yes">1.0</property>
+                                        <layout manager="pack">
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Scale" id="scale_contrast">
+                                        <property name="cursor">hand2</property>
+                                        <property name="from_">1</property>
+                                        <property name="length">160</property>
+                                        <property name="orient">horizontal</property>
+                                        <property name="to">30</property>
+                                        <bind sequence="&lt;B1-Motion&gt;" handler="get_contrastval" add="" />
+                                        <layout manager="pack">
+                                          <property name="expand">false</property>
+                                          <property name="padx">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_brightness">
+                                    <property name="height">200</property>
+                                    <property name="padding">2</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="anchor">nw</property>
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_bright">
+                                        <property name="cursor">hand2</property>
+                                        <property name="text" translatable="yes">Brightness</property>
+                                        <layout manager="pack">
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_brightval">
+                                        <property name="text" translatable="yes">0</property>
+                                        <layout manager="pack">
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Scale" id="scale_bright">
+                                        <property name="cursor">hand2</property>
+                                        <property name="from_">-126</property>
+                                        <property name="length">160</property>
+                                        <property name="orient">horizontal</property>
+                                        <property name="to">126</property>
+                                        <bind sequence="&lt;B1-Motion&gt;" handler="get_brightval" add="" />
+                                        <layout manager="pack">
+                                          <property name="expand">false</property>
+                                          <property name="padx">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_colorspace">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Frame" id="frame_colorspace_combo">
+                                        <property name="height">200</property>
+                                        <property name="width">200</property>
+                                        <layout manager="pack">
+                                          <property name="fill">x</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                        <child>
+                                          <object class="ttk.Label" id="lb_colorspace">
+                                            <property name="font">{verdana} 10 {bold}</property>
+                                            <property name="text" translatable="yes">Colorspace</property>
+                                            <layout manager="pack">
+                                              <property name="anchor">sw</property>
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Combobox" id="combobox_colorspace">
+                                            <property name="state">readonly</property>
+                                            <property name="width">10</property>
+                                            <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="get_colorspace" add="" />
+                                            <layout manager="pack">
+                                              <property name="anchor">nw</property>
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Frame" id="frame_color_channels">
+                                        <property name="height">200</property>
+                                        <property name="width">200</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                        <child>
+                                          <object class="tk.Checkbutton" id="cb_ch1">
+                                            <property name="cursor">hand2</property>
+                                            <property name="text" translatable="yes">Ch1</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="tk.Checkbutton" id="cb_ch2">
+                                            <property name="cursor">hand2</property>
+                                            <property name="text" translatable="yes">Ch2</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="tk.Checkbutton" id="cb_ch3">
+                                            <property name="cursor">hand2</property>
+                                            <property name="text" translatable="yes">Ch3</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_morph_transf">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Frame" id="frame_cb_morph">
+                                        <property name="height">200</property>
+                                        <property name="width">200</property>
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                        <child>
+                                          <object class="ttk.Label" id="label_morph_opr">
+                                            <property name="font">{verdana} 10 {}</property>
+                                            <property name="text" translatable="yes">Morphology</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Combobox" id="combobox_morph_opr">
+                                            <property name="cursor">hand2</property>
+                                            <property name="state">readonly</property>
+                                            <property name="width">10</property>
+                                            <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="select_morph_opr" add="" />
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Frame" id="frame_spin_kernelsize">
+                                        <property name="height">200</property>
+                                        <property name="width">200</property>
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                        <child>
+                                          <object class="ttk.Label" id="lb_morph_kernelsize">
+                                            <property name="font">{verdana} 10 {}</property>
+                                            <property name="text" translatable="yes">Kernel</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Spinbox" id="spinbox_morph_kernelsize">
+                                            <property name="cursor">hand2</property>
+                                            <property name="from_">1</property>
+                                            <property name="text" translatable="yes">5</property>
+                                            <property name="to">100</property>
+                                            <property name="width">6</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="pady">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_blurs">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_blur_type">
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Blur Type</property>
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Combobox" id="combo_blur">
+                                        <property name="cursor">hand2</property>
+                                        <property name="state">readonly</property>
+                                        <property name="width">10</property>
+                                        <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="select_blur_type" add="" />
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_blur_kernel">
+                                        <property name="text" translatable="yes">Kernel</property>
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="spinbox_blur_kernel">
+                                        <property name="cursor">hand2</property>
+                                        <property name="from_">1</property>
+                                        <property name="increment">2</property>
+                                        <property name="text" translatable="yes">7</property>
+                                        <property name="to">31</property>
+                                        <property name="width">6</property>
+                                        <layout manager="pack">
+                                          <property name="padx">3</property>
+                                          <property name="pady">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_cb_sharpen">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_sharpen">
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Sharpen</property>
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Combobox" id="combobox_sharpen">
+                                        <property name="cursor">hand2</property>
+                                        <property name="state">readonly</property>
+                                        <property name="width">10</property>
+                                        <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="select_sharping" add="" />
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_clahe">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_clahe">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Clahe</property>
+                                        <layout manager="grid">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_cliplimit">
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">ClipLimit</property>
+                                        <layout manager="grid">
+                                          <property name="column">0</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">1</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="spin_cliplimit">
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="from_">1</property>
+                                        <property name="text" translatable="yes">1</property>
+                                        <property name="to">256</property>
+                                        <property name="width">6</property>
+                                        <layout manager="grid">
+                                          <property name="column">1</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">1</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_tilegridsize">
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">Tile Grid Size</property>
+                                        <layout manager="grid">
+                                          <property name="column">2</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">10</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">1</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="spin_tilegridsize">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="from_">1</property>
+                                        <property name="text" translatable="yes">1</property>
+                                        <property name="to">256</property>
+                                        <property name="width">6</property>
+                                        <layout manager="grid">
+                                          <property name="column">3</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">10</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">1</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_tilegridsize_res">
+                                        <property name="font">{Verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">(1,1)</property>
+                                        <layout manager="grid">
+                                          <property name="column">4</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">10</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">1</property>
+                                          <property name="sticky">w</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_clahe_gray">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">Gray</property>
+                                        <layout manager="grid">
+                                          <property name="column">2</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">0</property>
+                                          <property name="sticky">e</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_clahe_bgr">
+                                        <property name="cursor">hand2</property>
+                                        <property name="text" translatable="yes">BGR</property>
+                                        <layout manager="grid">
+                                          <property name="column">3</property>
+                                          <property name="propagate">True</property>
+                                          <property name="row">0</property>
+                                          <property name="sticky">e</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_combothresh">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_combothresh">
+                                        <property name="font">{Georgia} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Thresh Type</property>
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Combobox" id="combobox_thresh">
+                                        <property name="cursor">hand2</property>
+                                        <property name="state">readonly</property>
+                                        <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="get_threshtype" add="" />
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_thresh_type">
+                                        <property name="font">{verdana} 10 {bold}</property>
+                                        <property name="text" translatable="yes">Val</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="spinbox_thresh_val">
+                                        <property name="from_">0</property>
+                                        <property name="text" translatable="yes">0</property>
+                                        <property name="to">255</property>
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_equalizationhist">
+                                    <property name="height">200</property>
+                                    <property name="relief">groove</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_equal_hist">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{Verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">Equalize</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_histeq_gray">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">Gray</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_histeq_bgr">
+                                        <property name="cursor">hand2</property>
+                                        <property name="text" translatable="yes">BGR</property>
+                                        <layout manager="pack">
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_gamma_correction">
+                                    <property name="height">200</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Frame" id="frame_gamma_sub">
+                                        <property name="height">200</property>
+                                        <property name="width">200</property>
+                                        <layout manager="pack">
+                                          <property name="fill">x</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                        <child>
+                                          <object class="ttk.Label" id="lb_gc_gamma">
+                                            <property name="text" translatable="yes">Gamma</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Spinbox" id="spinbox_gamma">
+                                            <property name="cursor">hand2</property>
+                                            <property name="from_">0</property>
+                                            <property name="increment">0.1</property>
+                                            <property name="text" translatable="yes">1</property>
+                                            <property name="to">10</property>
+                                            <property name="width">6</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Label" id="lb_gc_min">
+                                            <property name="text" translatable="yes">Min</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Spinbox" id="spinbox_gc_min">
+                                            <property name="cursor">hand2</property>
+                                            <property name="from_">0</property>
+                                            <property name="text" translatable="yes">0</property>
+                                            <property name="to">127</property>
+                                            <property name="width">6</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Label" id="lb_gc_max">
+                                            <property name="text" translatable="yes">Max</property>
+                                            <layout manager="pack">
+                                              <property name="padx">5</property>
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="ttk.Spinbox" id="spinbox_gc_max">
+                                            <property name="cursor">hand2</property>
+                                            <property name="from_">127</property>
+                                            <property name="text" translatable="yes">255</property>
+                                            <property name="to">255</property>
+                                            <property name="width">6</property>
+                                            <layout manager="pack">
+                                              <property name="propagate">True</property>
+                                              <property name="side">left</property>
+                                            </layout>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_adjust_gamma">
+                                        <property name="cursor">hand2</property>
+                                        <property name="text" translatable="yes">Adjust Gamma</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">sw</property>
+                                          <property name="padx">2</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">bottom</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_canny">
+                                    <property name="height">200</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">10</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Checkbutton" id="cb_canny">
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{verdana} 10 {}</property>
+                                        <property name="text" translatable="yes">Canny Edge</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">nw</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_canny_min">
+                                        <property name="text" translatable="yes">Min</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">w</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="sb_canny_min">
+                                        <property name="from_">0</property>
+                                        <property name="to">126</property>
+                                        <property name="width">10</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">w</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_canny_max">
+                                        <property name="text" translatable="yes">Max</property>
+                                        <layout manager="pack">
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Spinbox" id="sb_canny_max">
+                                        <property name="from_">127</property>
+                                        <property name="to">255</property>
+                                        <property name="width">10</property>
+                                        <layout manager="pack">
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="ttk.Notebook.Tab" id="tab_shot">
+                            <property name="text" translatable="yes">Shot</property>
+                            <child>
+                              <object class="ttk.Frame" id="frame_nb_shot">
+                                <property name="height">200</property>
+                                <property name="width">200</property>
+                                <layout manager="pack">
+                                  <property name="fill">y</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">top</property>
+                                </layout>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_materialname">
+                                    <property name="borderwidth">2</property>
+                                    <property name="height">200</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="anchor">nw</property>
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">2</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_materialname">
+                                        <property name="font">{Arial} 10 {}</property>
+                                        <property name="text" translatable="yes">Material Name</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">nw</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Entry" id="tb_materialname">
+                                        <property name="cursor">xterm</property>
+                                        <bind sequence="&lt;Return&gt;" handler="get_materialname" add="" />
+                                        <layout manager="pack">
+                                          <property name="anchor">nw</property>
+                                          <property name="expand">false</property>
+                                          <property name="fill">x</property>
+                                          <property name="padx">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_framenumber">
+                                    <property name="borderwidth">2</property>
+                                    <property name="height">100</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="anchor">nw</property>
+                                      <property name="expand">false</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="ttk.Label" id="lb_framenumber">
+                                        <property name="font">{Arial} 10 {}</property>
+                                        <property name="text" translatable="yes">Frame Number</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">w</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">2</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="ttk.Entry" id="tb_framenumber">
+                                        <property name="cursor">xterm</property>
+                                        <bind sequence="&lt;Return&gt;" handler="get_framenumber" add="" />
+                                        <layout manager="pack">
+                                          <property name="anchor">w</property>
+                                          <property name="padx">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">left</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="tk.Button" id="btn_shot">
+                                        <property name="activebackground">#2c2c2c</property>
+                                        <property name="activeforeground">#dedede</property>
+                                        <property name="background">#2c2c2c</property>
+                                        <property name="borderwidth">0</property>
+                                        <property name="command">shot</property>
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{Verdana} 12 {bold}</property>
+                                        <property name="foreground">#dedede</property>
+                                        <property name="text" translatable="yes">Shot</property>
+                                        <layout manager="pack">
+                                          <property name="anchor">center</property>
+                                          <property name="padx">5</property>
+                                          <property name="pady">5</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">right</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="ttk.Labelframe" id="labelframe_outdata">
+                                    <property name="height">200</property>
+                                    <property name="text" translatable="yes">Outdata</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="expand">true</property>
+                                      <property name="fill">both</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Text" id="text_outdata">
+                                        <property name="background">#000000</property>
+                                        <property name="font">{Verdana} 10 {}</property>
+                                        <property name="foreground">#cccccc</property>
+                                        <property name="height">10</property>
+                                        <property name="width">50</property>
+                                        <layout manager="pack">
+                                          <property name="expand">true</property>
+                                          <property name="fill">both</property>
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Panedwindow.Pane" id="pane_right">
+                    <property name="weight">3</property>
+                    <child>
+                      <object class="pygubu.builder.widgets.scrolledframe" id="scrolledframe_right">
+                        <property name="scrolltype">both</property>
+                        <property name="usemousewheel">true</property>
+                        <layout manager="pack">
+                          <property name="expand">true</property>
+                          <property name="fill">both</property>
+                          <property name="padx">20</property>
+                          <property name="pady">10</property>
+                          <property name="propagate">True</property>
+                          <property name="side">left</property>
+                        </layout>
+                        <child>
+                          <object class="tk.Canvas" id="canvas_image">
+                            <property name="background">#ffffff</property>
+                            <property name="confine">false</property>
+                            <property name="height">1200</property>
+                            <property name="highlightbackground">#ffffff</property>
+                            <property name="width">1920</property>
+                            <layout manager="pack">
+                              <property name="anchor">center</property>
+                              <property name="expand">true</property>
+                              <property name="fill">both</property>
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Panedwindow.Pane" id="pane_bottom">
+        <property name="weight">4</property>
+        <child>
+          <object class="ttk.Frame" id="frame_bottom">
+            <property name="relief">groove</property>
+            <layout manager="pack">
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+            <child>
+              <object class="ttk.Frame" id="frame_infopanel">
+                <property name="height">200</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="expand">false</property>
+                  <property name="fill">x</property>
+                  <property name="padx">10</property>
+                  <property name="pady">6</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Panedwindow" id="panedwindow_infopanel">
+                    <property name="height">20</property>
+                    <property name="orient">horizontal</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="fill">both</property>
+                      <property name="propagate">True</property>
+                      <property name="side">top</property>
+                    </layout>
+                    <child>
+                      <object class="ttk.Panedwindow.Pane" id="pane_1">
+                        <property name="weight">1</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_shapei">
+                            <property name="height">200</property>
+                            <property name="relief">flat</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Label" id="lb_shape">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">Shape:</property>
+                                <layout manager="pack">
+                                  <property name="expand">false</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_shapeval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0x0</property>
+                                <layout manager="pack">
+                                  <property name="expand">false</property>
+                                  <property name="padx">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Panedwindow.Pane" id="pane_2">
+                        <property name="weight">1</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_minmax">
+                            <property name="height">200</property>
+                            <property name="relief">flat</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Label" id="lb_min">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">Min:</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_minval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0</property>
+                                <layout manager="pack">
+                                  <property name="padx">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_max">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">Max:</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_maxval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Panedwindow.Pane" id="pane_3">
+                        <property name="weight">1</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_meani">
+                            <property name="height">200</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Label" id="lb_mean">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">Mean:</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_meanval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0</property>
+                                <layout manager="pack">
+                                  <property name="padx">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Panedwindow.Pane" id="pane_4">
+                        <property name="weight">1</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_framenumberi">
+                            <property name="height">200</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Label" id="lb_framenumberi">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">FrameNumber:</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_framenumberval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0</property>
+                                <layout manager="pack">
+                                  <property name="padx">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Panedwindow.Pane" id="pane_5">
+                        <property name="weight">1</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_ffgzi">
+                            <property name="height">200</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Label" id="lb_ffgz">
+                                <property name="font">{Arial} 10 {bold}</property>
+                                <property name="text" translatable="yes">FF_GZ:</property>
+                                <layout manager="pack">
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Label" id="lb_ffgzval">
+                                <property name="background">#ffffff</property>
+                                <property name="font">{Arial} 10 {}</property>
+                                <property name="text" translatable="yes">0</property>
+                                <layout manager="pack">
+                                  <property name="padx">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="frame_footer">
+                <property name="relief">groove</property>
+                <layout manager="pack">
+                  <property name="expand">true</property>
+                  <property name="fill">both</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Notebook" id="notebook_footer">
+                    <property name="height">200</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="expand">true</property>
+                      <property name="fill">both</property>
+                      <property name="propagate">True</property>
+                      <property name="side">bottom</property>
+                    </layout>
+                    <child>
+                      <object class="ttk.Notebook.Tab" id="tab_messagelog">
+                        <property name="text" translatable="yes">Message Log</property>
+                        <child>
+                          <object class="tk.Text" id="txt_log">
+                            <property name="background">#000000</property>
+                            <property name="foreground">#00ff00</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Notebook.Tab" id="tab_compare">
+                        <property name="text" translatable="yes">Compare</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_nbcompare">
+                            <property name="height">200</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="expand">true</property>
+                              <property name="fill">x</property>
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                            <child>
+                              <object class="ttk.Frame" id="frame_path_chooser">
+                                <property name="height">200</property>
+                                <property name="width">200</property>
+                                <layout manager="pack">
+                                  <property name="fill">x</property>
+                                  <property name="padx">5</property>
+                                  <property name="pady">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">top</property>
+                                </layout>
+                                <child>
+                                  <object class="ttk.Entry" id="tb_orig_data_path">
+                                    <property name="state">disabled</property>
+                                    <layout manager="pack">
+                                      <property name="expand">true</property>
+                                      <property name="fill">x</property>
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">left</property>
+                                    </layout>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="tk.Button" id="btn_choose_orig_data">
+                                    <property name="activebackground">#a3d3f8</property>
+                                    <property name="background">#a3d3f8</property>
+                                    <property name="borderwidth">0</property>
+                                    <property name="command">choose_original_data</property>
+                                    <property name="cursor">hand2</property>
+                                    <property name="font">{Verdana} 10 {}</property>
+                                    <property name="text" translatable="yes">.....</property>
+                                    <layout manager="pack">
+                                      <property name="padx">5</property>
+                                      <property name="pady">5</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">left</property>
+                                    </layout>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Frame" id="frame_plotcompare">
+                                <property name="height">200</property>
+                                <property name="width">200</property>
+                                <layout manager="pack">
+                                  <property name="expand">true</property>
+                                  <property name="fill">both</property>
+                                  <property name="padx">5</property>
+                                  <property name="pady">10</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">left</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="ttk.Frame" id="frame_compare_buttons">
+                                <property name="height">200</property>
+                                <property name="width">200</property>
+                                <layout manager="pack">
+                                  <property name="expand">false</property>
+                                  <property name="fill">both</property>
+                                  <property name="padx">5</property>
+                                  <property name="pady">5</property>
+                                  <property name="propagate">True</property>
+                                  <property name="side">right</property>
+                                </layout>
+                                <child>
+                                  <object class="ttk.Frame" id="frame_btncompare">
+                                    <property name="height">200</property>
+                                    <property name="width">200</property>
+                                    <layout manager="pack">
+                                      <property name="padx">10</property>
+                                      <property name="pady">10</property>
+                                      <property name="propagate">True</property>
+                                      <property name="side">top</property>
+                                    </layout>
+                                    <child>
+                                      <object class="tk.Button" id="btn_compare">
+                                        <property name="activebackground">#232323</property>
+                                        <property name="activeforeground">#ffffff</property>
+                                        <property name="background">#232323</property>
+                                        <property name="borderwidth">0</property>
+                                        <property name="command">compare</property>
+                                        <property name="cursor">hand2</property>
+                                        <property name="font">{Verdana} 10 {}</property>
+                                        <property name="foreground">#ffffff</property>
+                                        <property name="state">disabled</property>
+                                        <property name="text" translatable="yes">Compare</property>
+                                        <layout manager="pack">
+                                          <property name="propagate">True</property>
+                                          <property name="side">top</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Notebook.Tab" id="tab_livehistogram">
+                        <property name="text" translatable="yes">Live Histogram</property>
+                        <child>
+                          <object class="ttk.Frame" id="frame_livehistogram">
+                            <property name="height">200</property>
+                            <property name="width">200</property>
+                            <layout manager="pack">
+                              <property name="propagate">True</property>
+                              <property name="side">top</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

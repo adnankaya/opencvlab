@@ -1,0 +1,1 @@
+{"default_camera": "webcam", "selected_camera": "/dev/video0", "camera_types": [{"id": 0, "name": "webcam"}, {"id": 1, "name": "external"}], "selected_theme": "default"}

@@ -1,0 +1,14 @@
+**__pycache__
+
+*.mp4
+*.avi
+env/
+venv/
+.vscode
+
+
+# _outputs
+**/_outputs/**
+**/_dataset/**
+# !**/_dataset
+!**/_dataset/do_not_ignore_this_file.json
